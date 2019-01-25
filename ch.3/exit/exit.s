@@ -6,4 +6,3 @@ _start:
 movl $1, %eax
 mov $3, %ebx
 
-int $0x80

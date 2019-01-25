@@ -8,21 +8,13 @@ data_items:
 .globl _start
 _start:
 movl $0, %edi
-movl $4, %eax
-movl $13, %ecx
-mull %ecx
-movl %eax, %ecx
-addl $data_items, %ecx
 movl data_items, %eax
 movl %eax, %ebx
 
 start_loop:
 incl %edi
-movl $4, %eax
-mull %edi
-addl $data_items, %eax
-cmpl %eax, %ecx
-je loop_exit
+cmpl $13, %edi
+jg loop_exit
 movl data_items(,%edi,4), %eax
 cmpl %ebx, %eax
 jle start_loop
